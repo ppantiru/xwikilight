@@ -1,5 +1,5 @@
 const express = require('express');
-var favicon = require('serve-favicon');
+const favicon = require('serve-favicon');
 const xwiki = require('./xwiki');
 const path = require('path');
 const app = express();
@@ -8,7 +8,7 @@ const port = 9090;
 
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/static/index.html')
+    res.sendFile(__dirname + '/public/index.html')
   })
 
 app.listen(port, () => {

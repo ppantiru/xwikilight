@@ -1,2 +1,2 @@
 #!/bin/bash
-docker start mysql-node
+docker start mysql-xwiki
