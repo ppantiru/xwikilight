@@ -1,21 +1,19 @@
-const express = require('express');
 const favicon = require('serve-favicon');
-const xwiki = require('./xwiki');
+const express = require('express');
+const xwiki = require('./core/xwiki');
 const path = require('path');
 const app = express();
 const port = 9090;
 
+app.listen(port, () => {
+  console.log(`Listening at http://localhost:${port}`)
+});
 
+app.use(favicon(path.join(__dirname, 'public', './favicon.ico')))
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html')
-  })
-
-app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`)
-})
-
-app.use(favicon(path.join(__dirname, 'public', './favicon.ico')))
+});
 
 app.get('/rest/:space/:name', async (req, res) => {
   try {
